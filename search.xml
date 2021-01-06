@@ -14,4 +14,449 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title></title>
+    <url>/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%20%E7%AC%AC4%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/</url>
+    <content><![CDATA[<h1 id="第4章-类的继承"><a href="#第4章-类的继承" class="headerlink" title="第4章 类的继承"></a>第4章 类的继承</h1><p>计算机程序经常使用类之间的<strong>继承关系</strong>来表示对象时间的分类关系。在继承关系中，有<strong>父类</strong>和<strong>子类</strong>，<strong>父类</strong>也叫基类，<strong>子类</strong>也叫派生类。子类继承了父类的属性和行为，而子类也可以增加子类特有的属性和行为。对于某些父类有的行为，子类的实现方式可能和父类也不完全一样。</p>
+<p>使用继承一方面可以复用代码，公共的属性和行为可以放到父类中，而子类只需关注子类特有的部分就可以了。另一方面，不同子类的对象可以更为方便地被统一处理。</p>
+<h1 id="4-1-基本概念"><a href="#4-1-基本概念" class="headerlink" title="4.1 基本概念"></a>4.1 基本概念</h1><p><strong>在Java中，所有类默认都有一个父类，Object。</strong></p>
+<p>Object没有定义属性，但定义了一些方法，如<code>toString()</code>，<code>getClass</code>，<code>hashCode()</code>等。</p>
+<p>Java的继承有以下要求。</p>
+<ul>
+<li>  Java使用<code>extends</code>关键字来表示继承关系，一个类最多只能由一个父类。</li>
+<li>  子类不能访问父类的<code>private</code>属性和方法。</li>
+<li>  子类继承了除<code>private</code>外的父类的所有属性和方法。</li>
+</ul>
+<p>子类可以<strong>重写</strong>父类的方法，以反映自己不同的实现。重写实际上是在子类中定义和父类一样的方法，然后重新实现。而重写方法时，需要在重写的方法前加上<code>@Override</code>，以表示子类的这个方法是重写的父类的方法。</p>
+<p>在使用<code>new</code>创建对象的过程中，父类的构造方法也会执行，且优先于子类的构造方法调用。如果需要显式地调用父类的构造方法，则需要使用<code>super</code>关键字。<code>super</code>的使用方法和<code>this</code>相同，只不过<code>super</code>代表的是父类。但是，<code>this</code>引用一个对象，是实实在在存在的，可以作为函数参数，可以作为返回值。但<code>super</code>只是一个关键字，不能作为参数和返回值，其作用只是告诉编译器访问父类的相关变量和方法。</p>
+<p>使用继承的一个好处是通过一个父类变量来统一处理不同子类型的对象。这被称为<strong>多态</strong>，我们可以将一个子类变量给一个父类变量，如果父类具有多个子类。此时，通过父类来调用父类和子类同名的方式时，调用的究竟是哪个子类或父类的方法，由运行时确定，这被称为动态绑定。</p>
+<blockquote>
+<p>多态和动态绑定是计算机程序的一种重要的思维方式，使得操作对象的程序不需要关注对象的实际类型，从而<strong>可以统一处理不同的对象</strong>，但又能<strong>实现每个对象的特有行为</strong>。</p>
+</blockquote>
+<h1 id="4-2-继承的细节"><a href="#4-2-继承的细节" class="headerlink" title="4.2 继承的细节"></a>4.2 继承的细节</h1><p>在子类创建的过程中，父类的构造方法必须被调用。此时，子类可以通过<code>super</code>调用父类的构造方法，如果子类没有通过<code>super</code>调用，则编译器会自动调用父类的<strong>默认构造方法</strong>，如果父类没有默认构造方法，则会出现编译错误。</p>
+<p>如果在父类的方法中调用了可以被子类重写的方法，那么可能会出现意想不到的结果。因为子类如果调用了父类的某个方法A，并且A会调用已经被子类重写的方法B。即使A是父类的方法，但A调用的B不再是父类的方法，而是被重写的方法。而在构造方法中出现这种情况是一种不好的实践，容易引起混淆，因此构造方法应该只调用<code>private</code>方法。</p>
+<p>子类可以重写父类的非<code>private</code>的方法，当调用时会动态绑定，但对于实例变量、静态方法、静态变量和private方法，如果子类和父类的变量和方法重名了，那么在调用时执行的是静态绑定。也就是说，如果通过父类变量来调用，则调用父类的方法和属性，如果通过子类变量来调用，则调用子类的方法和属性。而对于实例方法的动态绑定，我们可以通过一个父类变量来调用子类的实例方法，至于是哪个方法，则可以在运行时动态确定。</p>
+<p>和重写相似的是<strong>重载</strong>。重载只是方法名称相同而函数签名(参数个数、类型或顺序)不同，而重写要求除方法定义外的一切完全相同。当有多个重载函数时，会根据调用时的参数在所有的重载版本中选择出一个最匹配的版本来调用。然后再查看变量的动态类型，进行动态绑定。</p>
+<p>我们可以将一个子类变量赋值给一个父类变量，但父类变量是否能赋值给一个子类变量取决于父类变量的动态类型。也就是说，只有当这个父类变量引用的变量类型确实是将要赋值的子类变量时才会成功，否则会发生编译错误。可以通过<code>instanceof</code>关键字来检查一个父类变量是否引用的是一个子类对象。</p>
+<pre><code>public boolean canCast(Base b) &#123;
+    // child是子类
+    return b instanceof Child;
+&#125;</code></pre>
+<p><code>protected</code>关键字表示属性或方法虽然不能被外部访问，但可以被子类访问或者是被同一个包内的其他类访问，不管其他类是否是该类的子类。<code>proteced</code>的一种常见的应用场景是模板方法。</p>
+<p>重写方法时，子类方法可以提高但不能降低父类方法的可见性。如果父类方法是<code>public</code>，那么子类方法也需要是<code>public</code>；如果父类方法是<code>protected</code>，那么子类方法可以是<code>protected</code>，也可以是<code>public</code>。</p>
+<p>可以使用修饰符<code>final</code>来防止继承。如果<code>final</code>修饰的是一个类，那么这个类不可以被继承。如果<code>final</code>修饰的是类的方法，那么这个方法在不可以被子类重写。</p>
+<h1 id="4-3-继承的基本原理"><a href="#4-3-继承的基本原理" class="headerlink" title="4.3 继承的基本原理"></a>4.3 继承的基本原理</h1><p>在Java中，所谓类的加载是将类的相关信息加载到内存。在Java中，类是动态加载的，当第一次使用这个类的时候才会加载，加载一个类时，会查看其父类是否已加载，如果没有，则会加载其父类。</p>
+<p>在创建对象时，其过程如下</p>
+<ul>
+<li>  分配内存。</li>
+<li>  执行静态变量和静态初始化代码。</li>
+<li>  对所有实例变量赋默认值。</li>
+<li>  执行实例初始化代码。</li>
+</ul>
+<p>分配的内存包括本类和所有父类的实例变量，但不包括任何静态变量。实例初始化代码的执行先从父类开始，然后再执行子类的初始化代码。再执行任何初始化代码前，所有的实例变量已经设置完默认值。</p>
+<p>寻找要执行的实例方法时先从对象的实际类型信息开始查找，找不到时再查找父类的类型信息。如果继承的层次比较深，要调用的方法位于比较上层的父类，则需要经过多次查找，大多数系统则使用一种称为<strong>虚方法表</strong>的方法来优化调用的效率。所谓虚方法表就是在类加载的时候为每个类创建一个表，记录该类的对象所有动态绑定的方法及其地址，但一个方法只有一条记录。子类重写了父类方法后只会保留子类的。</p>
+<p>对变量的访问是静态绑定的。</p>
+<h1 id="4-4-继承是把双刃剑"><a href="#4-4-继承是把双刃剑" class="headerlink" title="4.4 继承是把双刃剑"></a>4.4 继承是把双刃剑</h1><p>继承是具有破坏力的，主要存在以下问题。</p>
+<ul>
+<li>  继承破坏封装，因为子类和父类之间可能存在细节的依赖。</li>
+<li>  继承并没有反映<code>is-a</code>关系。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>基本数据类型与变量</title>
+    <url>/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC1%E7%AB%A0%20%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="基本数据类型与变量"><a href="#基本数据类型与变量" class="headerlink" title="基本数据类型与变量"></a>基本数据类型与变量</h1><p>数据类型是用来声明变量的。变量实际上是一个标识符，其指向了内存中的一块区域。声明变量就相当于在内存中分配了一块区域，对变量赋值就相当于给这个变量区域放入相应的值。</p>
+<p>Java的基本数据类型如下。</p>
+<p>数据类型</p>
+<p>大小(字节数)</p>
+<p>byte</p>
+<p>1</p>
+<p>short</p>
+<p>2</p>
+<p>int</p>
+<p>4</p>
+<p>long</p>
+<p>8</p>
+<p>char</p>
+<p>2</p>
+<p>float</p>
+<p>4</p>
+<p>double</p>
+<p>8</p>
+<p>boolean</p>
+<p>Java中的char占2个字节，而C/C++中的char只占1个字节。</p>
+<p>对于整型常量，其默认类型为int。因此，如果整型常量的字面值超过了int的表示范围，需要在其后加上大写L或小写l。即使是将一个整型常量赋值给long也需要如此。</p>
+<p>对于浮点型变量，其默认类型的double。因此将小数常量赋值给float时，需要在其后加上大写F或小写f。</p>
+<h1 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h1><p>Java中的数据定义方式有3中类型。</p>
+<pre><code>int[] arr;
+int[] arr = &#123;1,2,3&#125;;
+int[] arr = new int[3];</code></pre>
+<p>不同于C/C++，Java中的数组的长度可以动态确定，但在数组声明后其大小便不可以修改。</p>
+<pre><code>int[] arr = new int[length]; // length是一个在运行时确定的变量</code></pre>
+<p>但是，Java中的数组不可以在给定初始值的同时给定长度。</p>
+<pre><code>int[] arr = new int[3]&#123;1,2,3&#125;; </code></pre>
+<p>上述情况不被允许。</p>
+<p>数组类型变量和基本类型变量在内存分配上有较大的不同。基本类型变量在内存中只有一块对应的内存空间。但是，数据类型变量有两块对应的内存空间，一块是数据名指向的内存空间，用于存放数组保存的内容的起始地址；另一块则用于保存数据的内容。</p>
+<p>在Java中，数组类型变量可以相互赋值。</p>
+<pre><code>int[] A = &#123;1,2,3&#125;;
+int[] B = &#123;1,2&#125;;
+A = B; // 在Java中被允许</code></pre>
+<p>如果从观点“变量名指向内存中保存的一块地址”来看上述语句，则在<code>A=B;</code>执行后，变量A指向的内存空间保存的内容不再是数组<code>&#123;1,2,3&#125;</code>的起始地址，而变成了变量B指向的内存空间的内容，即变量A，B同时指向了数组<code>&#123;1,2&#125;</code>的起始地址。而数组<code>&#123;1,2,3&#125;</code>的内存空间由于不再被引用而被进行垃圾回收。</p>
+<h1 id="基本运算"><a href="#基本运算" class="headerlink" title="基本运算"></a>基本运算</h1><p>Java中的基本运算有以下类型，运算的意义和C/C++完全相同。</p>
+<pre><code>+ - * / % ++ -- 
+&gt; &gt;= &lt; &lt;= == !=
+&amp; | ! ^
+&amp;&amp; ||
+? :</code></pre>
+<h1 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h1><p>Java中的条件语句有<code>if</code>、<code>if-else</code>、<code>if-else if-else</code>、<code>switch</code>类型，语句的逻辑和C/C++基本相同。唯一不同的是，在Java中switch的变量除了整型变量外，还支持枚举类型和String类型。</p>
+<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><p>Java的循环有<code>while</code>、<code>do-while</code>、<code>for</code>、<code>for each</code>4种类型。其中，<code>for-each</code>的语法如下。</p>
+<pre><code>for (type element : aSet) &#123;
+    ...
+&#125;</code></pre>
+<p><code>aSet</code>是集合或数组类型变量，<code>type</code>是其中保存的元素类型。使用<code>for-each</code>语法可以不需要使用索引变量，每次循环<code>element</code>都会更新为<code>aSet</code>中的下一个<code>element</code></p>
+<p>循环的控制有两个关键字<code>break</code>，<code>continue</code>。</p>
+<h1 id="函数的用法"><a href="#函数的用法" class="headerlink" title="函数的用法"></a>函数的用法</h1><p>在Java中，任何函数都需要放在一个<strong>类</strong>中，一个类包含多个函数。此时，类中的函数被称为<strong>方法</strong>。方法的定义方式如下。</p>
+<pre><code>修饰符 返回值类型 函数名字(参数类型 参数名字, ...) &#123;
+    ...
+   return ...;
+&#125;</code></pre>
+<p>每一个类都有且只有一个main函数，Java程序执行时会寻找这个main函数开始执行。</p>
+<p>Java中的函数支持可变长度的参数。</p>
+<pre><code>public static int max(int min, int ... a) &#123;
+    ...
+&#125;</code></pre>
+<p>变量<code>a</code>是一个数组类型变量，其存放了可变的参数部分，即<code>a</code>的长度是不确定的，但会在函数调用时确定下来。</p>
+<p>函数支持<strong>重载</strong>，但要求参数列表不一致。在调用重载函数时，Java编译器首先会选择和调用参数完全匹配的函数，如果没有，则编译器会进行隐式类型转换来确定最合适的重载函数。</p>
+]]></content>
+      <tags>
+        <tag>centOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC2%E7%AB%A0%20%E7%90%86%E8%A7%A3%E6%95%B0%E6%8D%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="第2章-理解数据背后的二进制"><a href="#第2章-理解数据背后的二进制" class="headerlink" title="第2章 理解数据背后的二进制"></a>第2章 理解数据背后的二进制</h1><h1 id="2-1-二进制整数的表示与位运算"><a href="#2-1-二进制整数的表示与位运算" class="headerlink" title="2.1 二进制整数的表示与位运算"></a>2.1 二进制整数的表示与位运算</h1><h1 id="2-2-小数的二进制表示"><a href="#2-2-小数的二进制表示" class="headerlink" title="2.2 小数的二进制表示"></a>2.2 小数的二进制表示</h1><h1 id="2-3-字符编码与乱码"><a href="#2-3-字符编码与乱码" class="headerlink" title="2.3 字符编码与乱码"></a>2.3 字符编码与乱码</h1><p>字符的编码方式有两种，Unicode编码和非Unicode编码。</p>
+<h2 id="非Unicode编码"><a href="#非Unicode编码" class="headerlink" title="非Unicode编码"></a>非Unicode编码</h2><p>非Unicode编码按时间先后顺序如下。</p>
+<p>ASCII码是基础，使用一个字节表示，最高位设为0，其他7为表示128个字符，被其他编码兼容。</p>
+<p>西欧主要使用Windows-1252，使用一个字节，增加了额外128个字符。</p>
+<p>中国大陆的三个主要编码数GB2312，GBK，GB18030。三个编码有时间先后关系，表示的字符数递增，后面的编码兼容前面的编码。GB2312和GBK使用两个字节表示，GB180303使用2个或4个字节表示。</p>
+<p>港澳台主要使用Big5。</p>
+<p>除了ASCII码和中国大陆的三个编码之外，编码与编码之间不兼容，强行解析则会出现乱码的问题。</p>
+<h2 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h2><p>Unicode编码是为了将世界上所有的字符统一编码，以解决由于编码导致乱码的问题。Unicdoe为世界上所有的字符都分配了一个唯一的数字编号，这个编号的范围从0x000000<del>0x10FFFF，常用字符在0x0000</del>0xFFFF之间。每个字符都有一个Unicode编号，这个编号一般写成16进制，前面加上U+。大部分中文的编号范围是U+4E00~U+9FFFF。</p>
+<p>Unicode的编码方案主要有三种，UTF-32，UTF-16和UTF-8。编码存在字节序的问题，大端方式使用BE表示，小端方式使用LE表示。</p>
+<p>UTF-32使用4个字节来表示一个字符。</p>
+<p>UTF-16和UTF-8使用变长字节来表示字符。</p>
+<h2 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h2><p>乱码的主要有两种。</p>
+<ul>
+<li>  解析错误。如Windows-1252编码的文件使用了GB18030来解析。这种方式并没有改变数据的二进制形式，而是改变了解析数据的方式，换回正确的编码即可正常解析。</li>
+<li>  在错误解析的基础上进行了编码转换。这种方式由于进行了编码转换而改变了数据的二进制形式，而最终会出现无论怎么切换编码方式都无法正常解析。</li>
+</ul>
+<h1 id="2-4-char的真正含义"><a href="#2-4-char的真正含义" class="headerlink" title="2.4 char的真正含义"></a>2.4 char的真正含义</h1><p>在Java内部进行字符处理时，采用的都是Unicode，具体编码格式是UTF-16BE。</p>
+<p>char本是上使用一个固定占用两个字节的无符号正整数，这个正整数对应于Unicode编码，用于表示那个Unicode编号对应的字符。由于固定占用两个字节，char只能表示Unicode编号在65536范围内的字符，而不能表示超出范围的字符，超出范围的字符使用两个char来表示。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC3%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="第3章-类的基础"><a href="#第3章-类的基础" class="headerlink" title="第3章 类的基础"></a>第3章 类的基础</h1><h1 id="3-1-类的基本概念"><a href="#3-1-类的基本概念" class="headerlink" title="3.1 类的基本概念"></a>3.1 类的基本概念</h1><p>一种类的理解方式是函数的容器。例如在Java API的类Math，在类Math中，我们可以引用的方法是以<code>public static</code>修饰的。</p>
+<p><code>static</code>表示<strong>类方法</strong>，也叫<strong>静态方法</strong>。与类方法相对的是<strong>实例方法</strong>，实例方法没有<code>static</code>修饰，必须通过实例或对象调用，而类方法可以直接通过类名进行调用，不需要创建实例。</p>
+<p><code>public</code>表示方法是公开的，可以在任何地方被外部调用。</p>
+<p><code>private</code>表示方法是私有的，这个方法只能在同一个类内被别的函数调用，而不能被外部类调用。</p>
+<blockquote>
+<p>通过private封装和隐藏内部实现细节，避免误操作，是计算机程序的一种基本思维方式。</p>
+</blockquote>
+<p>以下是<strong>类Math</strong>常用的方法。</p>
+<p>方法</p>
+<p>功能</p>
+<p>int round(float a)</p>
+<p>double sqrt(double a)</p>
+<p>double ceil(double a)</p>
+<p>向上取整</p>
+<p>double floor(double a)</p>
+<p>向下取整</p>
+<p>double pow(double a, double b)</p>
+<p>int abs(int a)</p>
+<p>int max(int a, int b)</p>
+<p>double log(double a)</p>
+<p>取自然对数</p>
+<p>double random()</p>
+<p>产生一个 ( 0 , 1 ) (0,1) (0,1)范围内的随机数</p>
+<p>以下是一个和数组的操作相关的<strong>类Arrays</strong>常用方法。</p>
+<p>方法</p>
+<p>功能</p>
+<p>void sort(int[] a)</p>
+<p>按升序排序</p>
+<p>void sort(double[] a)</p>
+<p>int binarySearch(long[] a, long key)</p>
+<p>查找key在数组a中的位置</p>
+<p>void fill(int[] a, int val)</p>
+<p>给数组所有元素赋相同的值</p>
+<p>int[] copyOf(int[] originnal, int newLength)</p>
+<p>数组复制</p>
+<p>boolean equals(char[] a1, char[] a2)</p>
+<p>判断两个数组是否相同</p>
+<p>类事实上是一种自定义的数据类型。一个类型主要由4部分组成。</p>
+<ul>
+<li>  <strong>类型本身</strong>具有的属性，通过<strong>类变量</strong>（static修饰，也称静态变量或静态成员变量）来体现。</li>
+<li>  <strong>类型本身</strong>可以进行的操作，通过<strong>类方法</strong>（static修饰，也称静态方法或静态成员方法）体现。</li>
+<li>  <strong>类型实例</strong>具有的属性，通过<strong>实例变量</strong>（无static修饰，也称成员变量）来体现。</li>
+<li>  <strong>类型实例</strong>可以进行的操作，通过<strong>实例方法</strong>（无static修饰，也称成员方法）来体现。</li>
+</ul>
+<p>我们可以使用<code>final</code>来表示常量。</p>
+<p>在类的定义中，类不可以使用<code>private</code>来修饰，但可以没有修饰符，此时表示一种<strong>包的可见性</strong>。但在定义内部类时，可以使用<code>private</code>修饰符。</p>
+<p>和类变量类似，实例变量也有<code>public</code>和<code>private</code>修饰符，且不能使用<code>static</code>修饰。</p>
+<p>实例方法和类方法的区别如下。</p>
+<ul>
+<li>  类方法只能访问类变量，不能访问实例变量，可以调用其他类方法，当不能调用本类的实例方法。</li>
+<li>  实例方法既可以访问实例变量，也可以访问类变量。既可以调用类方法，也可以调用实例方法。</li>
+</ul>
+<p>类的使用过程基本如下所示。</p>
+<pre><code>public class ChapterThree &#123;
+    public static void main(String[] args) &#123;
+        Point p = new Point();
+        p.x = 2;
+        p.y = 3;
+        System.out.println(p.distance());
+    &#125;
+&#125;</code></pre>
+<p>其中，类的实例或对象的创建语句为<code>Point p = new Point();</code>。其中，<code>new Point();</code>是必须的。而在C++中，<code>Point p</code>即可创建按一个类的实例或对象。但在Java中，<code>Point p</code>只是创建了一个可以引用实例或对象的变量，即<code>p</code>的值是对象或实例的实际存放地址。此时，<code>new Point()</code>是为对象的实例分配内存，而赋值语句则把存放对象的内存的起始地址赋值给<code>p</code>，使得<code>p</code>可以引用这个实例。</p>
+<p>在创建对象的实例时，所有的实例变量都会分配一个默认值，其中，数值类型变量的默认值是0，boolean为false，char是“\u0000”，引用类型变量是null。null是一个特殊的值，表示这个引用类型变量不指向任何对象。</p>
+<p>不同于C++，Java可以在定义成员变量时指定初始值，无论成员变量是否为<code>static final</code>。</p>
+<p>Java中的构造方法可以通过<code>this(...)</code>来调用。</p>
+<p>每个类至少有一个构造方法，构造方法在通过<code>new</code>创建对象的过程中会被调用。如果没有显示定义构造方法，Java编译器会自动生成一个<strong>默认构造方法</strong>。但显示定义了构造方法后，Java编译器不再生成默认构造方法。</p>
+<p>构造方法可以使用<code>private</code>来修饰。</p>
+<p>类和对象的生命周期如下。</p>
+<ol>
+<li> 在程序第1次通过new创建一个类的对象时，或者直接通过类名访问类变量和类方法时，Java会将类加载进内存，为这个类分配一块空间。这个空间包括类的定义、成员变量和成员方法。</li>
+<li> 类加载进内存后，一般不会释放，直到程序结束。</li>
+<li> 每次做new操作时都会在内存中划分一块区域来存储对象，每个区域都对应一个独立的实例变量。</li>
+<li> 对象的释放是通过Java的垃圾自动回收机制管理的，当没有活跃变量引用对象时，对象对应的空间可能会被释放。</li>
+</ol>
+<p>对象和数组一样，有两块内存，保存地址的部分分配在栈中，保存实际内容的部分分配在堆中。</p>
+<h1 id="3-2-类的组合"><a href="#3-2-类的组合" class="headerlink" title="3.2 类的组合"></a>3.2 类的组合</h1><p>类的组合实际上是在类中使用另外一个类的对象。例如<code>String</code>和<code>Date</code>类。</p>
+<blockquote>
+<p>每个类封装其内部细节，对外提供高层次的功能，使其他类在更高层次上考虑和解决问题，是程序设计的一种基本思维方式。</p>
+</blockquote>
+<h1 id="3-3-代码的组织机制"><a href="#3-3-代码的组织机制" class="headerlink" title="3.3 代码的组织机制"></a>3.3 代码的组织机制</h1><p><strong>包</strong>类似于文件夹，类和接口放在包中。包的名字以<code>.</code>分割，例如<code>java.lang.String</code>，这个带完整包名的类名为<strong>完全限定名</strong>。Java API中所有的类和接口都位于包Java或javax下，Java是标准包，javax是扩展包。</p>
+<p>在定义类的时候，应该使用关键字<code>package</code>来声明包名，例如。</p>
+<pre><code>package shuo.laoma;
+public class Hello&#123;
+
+&#125;</code></pre>
+<p>包声明语句应该位于源代码的最前面，前面不能有注释外的其他语句。</p>
+<p>注意，包名和文件目录必须匹配。如果存放源文件的根目录为<code>E:\src</code>，上面<code>Hello</code>类所在的文件为<code>Hello.java</code>，其全路径应该是<code>E:\src\shuo\laoma\Hello.java</code>。如果不匹配，Java会提示编译错误。</p>
+<p>包的用途是避免命名冲突和方便组织代码。</p>
+<p>同一个包下的类之间的相互引用是不需要包名的，可以直接使用。如果类不在同一个包内，则必须知道其所在的包。此时，有两种解决方式，一种是通过类的完全限定名，另一种是将用到的类引入到当前类中。特别地，<code>java.lang</code>包下的类可以直接使用，不需要引入，也不需要完全限定名，例如<code>String</code>，<code>System</code>。</p>
+<p>通过<code>import</code>关键字可将一个类引入到当前类的文件中，例如。</p>
+<pre><code>package shuo.laoma;
+import java.util.Arrays;
+
+public class Hello&#123;
+
+&#125;</code></pre>
+<p>做<code>import</code>时，可以通过<code>*</code>来将一个包下的所有类一次引入，例如</p>
+<pre><code>import java.util.*;</code></pre>
+<p>但这个引入不可以递归。</p>
+<p>在一个类中，对其他类的引用必须时唯一确定的，不能有重名的类。如果有重名的类，只能通过<code>import</code>引入其中一个类，其他同名的类需要通过完全限定名来访问。</p>
+<p><code>import</code>语句应该放置在<code>package</code>之后，类的定义之前。</p>
+<p>有一种特殊类型的导入称为<strong>静态导入</strong>，其有一个<code>static</code>关键字，可以直接导入类的公开静态方法或成员。但静态导入不应该过度使用，否则难以区分访问的是哪个类的代码。</p>
+<p>我们可以将编译好的代码打包成一个文件，方便其他程序调用。</p>
+<p>在Java中，编译后的一个或多个包的Java class可以打包成一个文件，命令为<code>jar</code>，打包后的文件扩展名为<code>.jar</code>，一般称之为<strong>jar包</strong>。</p>
+<p>Java类库、第三方类库都是以jar包的形式提供的，将其加入到类路径<code>classpath</code>即可使用。</p>
+<p>从Java源代码到运行的程序，需要经过编译和链接两个步骤。编译是使用<code>javac</code>命令将源代码文件编译扩展名为<code>.class</code>的字节码。链接时使用<code>java</code>命令解析<code>.class</code>文件，转换为机器能识别的二进制代码，然后放到Java虚拟机上运行。</p>
+<p>Java编译运行时需要以参数指定一个classpath，<strong>类路径</strong>。类路径可以有多个，对于直接的class文件，路径是class文件的根目录。对于jar包，路径是jar包的完整名称。</p>
+<p>在Java源代码编译时，Java编译器会确定引用的每个类的完全限定名，确定的方式是根据<code>import</code>语句和<code>classpath</code>。Java运行时，会根据编译时确定下来的类的完全限定名寻找并加载类，寻找的方式就是在类路径中寻找。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC5%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E6%89%A9%E5%B1%95/</url>
+    <content><![CDATA[<h1 id="第5章-类的扩展"><a href="#第5章-类的扩展" class="headerlink" title="第5章 类的扩展"></a>第5章 类的扩展</h1><blockquote>
+<p>第5章主要介绍接口、抽象类、内部类和枚举。</p>
+</blockquote>
+<h1 id="接口的本质"><a href="#接口的本质" class="headerlink" title="接口的本质"></a>接口的本质</h1><p>很多时候，我们关心的并不是对象的类型，而是对象的能力，我们要求某个对象提供某种能力，而不管其类型。<strong>接口</strong>就是用来描述对象可以提供的能力。</p>
+<p>接口声明了一组能力，但它自己并没有实现这个能力，它只是一个约定。接口涉及交互两方对象，一方需要实现这个接口，另一方使用这个接口，但双方对象并不直接相互依赖，他们只是通过接口间接交互。</p>
+<p>接口的定义使用<code>interface</code>关键字。如下所示</p>
+<pre><code>public interface MyComparable &#123;
+    int compareTo(Object other);
+&#125;</code></pre>
+<p>在Java 8之前，接口内不可以实现方法，接口方法不需要加修饰符，默认为public abstract。</p>
+<p>类可以通过实现接口来表示类的对象具有接口所表示的能力。实现接口使用<code>implements</code>关键字。</p>
+<pre><code>public class Point implements MyComparable&#123;
+    ...
+   @Override
+    public int compareTo(Object other) &#123;
+        ...
+    &#125;
+&#125;</code></pre>
+<p>在类中需要重写接口定义的方法来实现接口。在使用泛型的时候需要使用<code>instanceof</code>来检查对象的类型，以免造成不必要的错误。</p>
+<p>一个类可以实现多个接口来表示类的对象更具备多种能力。</p>
+<pre><code>public class Test implements interface1, interface2&#123;
+
+&#125;</code></pre>
+<p>接口不能<code>new</code>来创建接口对象，使用接口的唯一方法是通过类来实现接口，然后创建这个类的对象，调用对象的接口方法。而实现接口的对象可以赋值给接口类型的变量，类似于父类和子类的关系。</p>
+<blockquote>
+<p>这就是接口的威力所在，我们可以脱离对象的类型来统一考虑对象的能力，即面向接口编程的思想。</p>
+</blockquote>
+<p>接口更重要的是降低了耦合，提高灵活性。使用接口的代码依赖的是接口本身，而非实现接口的具体类型，程序可以根据情况替换接口的实现，而不影响解耦的使用者。</p>
+<p>接口内可以定义变量，但变量类型是<code>public static final</code></p>
+<pre><code>public interface Interface1&#123;
+    public static final int a = 0;
+&#125;</code></pre>
+<p>接口可以继承，不同于类的继承，接口的继承支持多继承。</p>
+<pre><code>public interface IBase1&#123;
+    void method1();
+&#125;
+
+public interface IBase2&#123;
+    void method2();
+&#125;
+
+public interface IChild extends IBase1, IBase2&#123;
+
+&#125;</code></pre>
+<p>类的继承和实现接口可以并存。</p>
+<pre><code>public class Child extends Base implements IChild&#123;
+
+&#125;</code></pre>
+<p>接口也可以使用<code>instanceof</code>关键字，用来判断一个对象是否实现了某个接口。</p>
+<pre><code>Point p = new Point();
+if( p instanceof MyComparable) &#123;
+
+&#125;</code></pre>
+<p>可以使用接口和组合来有效代替继承。</p>
+<h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><p>抽象类就是抽象的类。抽象是相对于具体而言的，一般而言，具体类有直接对应的对象，而抽象类没有，它表达的是抽象概念，例如图形类Shape。抽象概念的方法一般定义为抽象方法，例如抽象类的<code>draw</code>方法就是抽象方法。因为抽象类不知道方法如何实现，只有子类（具体类如圆类Circle）才知道如何实现。抽象类和抽象方法都使用<code>abstract</code>关键字来声明。</p>
+<pre><code>public abstract class Shape&#123;
+    public abstract void draw();
+&#125;</code></pre>
+<p>定义了抽象方法的类必须被声明为抽象类，但抽象类可以没有抽象方法。抽象类不可以使用<code>new</code>来创建对象，要创建对象必须使用其子类。一个类在继承抽象类后，必须实现抽象类中定义的所有抽象方法，除非它自己也声明为抽象类。</p>
+<pre><code>public class Circle extends Shape&#123;
+    @Override
+    public void draw()&#123;
+
+    &#125;
+&#125;</code></pre>
+<p>抽象类虽然不能创建对象，但可以声明抽象类的变量，引用抽象类具体子类的对象。</p>
+<pre><code>Shape shape = new Shape();
+shape.draw();</code></pre>
+<p>抽象类的引入和以引导使用者正确使用它们，减少无用。使用抽象方法而非空方法体，子类就必须要实现该方法，而不可能忽略，若忽略则会发生编译错误。</p>
+<p>抽象类和接口在根本上是不同的，接口中不能定义实例变量而抽象类可以。一个类可以实现多个接口但只能继承一个类。</p>
+<p>抽象类和接口是配合而非替代关系，它们常常一起使用、接口声明能力，抽象类提供默认实现，实现全部或部分方法。一个接口经常有一个对应的抽象类。例如<code>Collection</code>接口对应的<code>AbstractCollection</code>抽象类。</p>
+<p>对于需要具备某种能力的具体类来说，有两个选择，一是实现接口，自己实现全部方法，另一个则是继承抽象类，根据需要重写方法。继承的好处是复用代码，只需要重写需要的部分即可，需要编写的代码比较少容易实现。不过如果这个具体了已经有父类了，那么只能选择实现接口。</p>
+<h1 id="内部类的本质"><a href="#内部类的本质" class="headerlink" title="内部类的本质"></a>内部类的本质</h1><p>一般来说，每个类都对应一个独立的Java源文件。但一个类还可以放在另一个类的内部，称之为<strong>内部类</strong>，相对而言，包含它的类称为<strong>外部类</strong>。</p>
+<p>内部类只是Java编译器的概念，对于Java虚拟机而言，它并不知道内部类，每个内部类最后都会被编译为一个独立的类，生成一个独立的字节码文件。</p>
+<p>内部类可以方便地访问外部类的私有变量。</p>
+<p>在Java中，根据定义的位置和方式不同，内部类的类型主要有4种。</p>
+<ul>
+<li>  静态内部类</li>
+<li>  成员内部类</li>
+<li>  方法内部类</li>
+<li>  匿名内部类</li>
+</ul>
+<p>方法内部类是在一个方法内定义和使用的，匿名内部类作用范围更小，这两种类都不能在外部使用。成员内部类和静态内部类可以被外部使用，但它们都可以被声明为<code>private</code></p>
+<p>静态内部类和静态变量和静态方法的定义方式一样，都带有<code>static</code>关键字。</p>
+<pre><code>public class Outer&#123;
+    public static class StaticInner&#123;
+        public void innerMethod() &#123;
+            ...
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>静态内部类可以直接访问外部类的静态变量和方法，但不能访问实例变量。</p>
+<p><code>public</code>的静态内部类可以被外部使用，只不过需要通过<code>外部类.静态内部类</code>的方式来使用。</p>
+<pre><code>Outer.StaticInner si = new Outer.StaticInner();
+si.innerMethod();</code></pre>
+<p>成员内部类和静态内部类的定义相似，但没有<code>static</code>修饰符。</p>
+<pre><code>public class Outer&#123;
+    private int a = 100;
+
+    public class Inner&#123;
+        public void innerMethod() &#123;
+            System.out.prinln(&quot;outer a = &quot; + a);
+            Outer.this.action();
+        &#125;
+    &#125;
+
+    private void action() &#123;
+         System.out.println(&quot;action&quot;);   
+     &#125;
+    public void test() &#123;
+        Inner inner = new Inner();
+        inner.innnerMethod();
+    &#125;
+&#125;</code></pre>
+<p>成员内部类还可以直接访问外部类的实例变量和方法，也可以使用<code>外部类.this.xxx</code>的方式来引用外部类的实例变量和方法。但后者一般应用在成员内部类的方法和变量与外部类重名的情况</p>
+<h1 id="枚举的本质"><a href="#枚举的本质" class="headerlink" title="枚举的本质"></a>枚举的本质</h1><p>枚举<code>enum</code>是一种特殊的数据类型，它的取值是有限的，是可以枚举出来的，因此称为枚举类型。</p>
+<p>枚举类的定义示例如下。</p>
+<pre><code>public enum Size &#123;
+    SMALL, MEDIUM, LARGE
+&#125;</code></pre>
+<p>枚举使用关键字<code>enum</code>来定义，枚举类型的每个值以逗号<code>,</code>分割。枚举类型可以定义为一个单独的文件，也可以定义在其他类内部。</p>
+<p>枚举类型变量的定义如下。</p>
+<pre><code>Size size = Size.MEDIUM;</code></pre>
+<p>枚举变量的<code>toString()</code>和<code>name()</code>方法返回枚举变量的字面值，<code>size.toString()</code>返回的是MEDIUM。</p>
+<p>枚举变量可以使用<code>==</code>和<code>equals()</code>进行比较。因为枚举值是有顺序的，可以比较大小。枚举值的顺序是在定义枚举类型时确定的，从0开始。枚举值通过方法<code>ordinal()</code>返回。</p>
+<p>枚举类型都实现了Java API的<code>Comparable</code>接口，可以通过方法<code>compareTo</code>来和其他枚举值进行比较，实际上是比较<code>ordinal</code>的大小。</p>
+<p>枚举类型可以用在<code>switch</code>的判断条件中，但是在<code>case</code>中的标签不可以加上枚举类型的前缀。</p>
+<pre><code>switch(size) &#123;
+    case SMALL:
+        ...
+       break;
+
+    case MEDIUM:
+       ...
+       break;
+
+    case LARGE:
+       ...
+       break;
+&#125;</code></pre>
+<p>枚举类型都有一个静态的<code>valueOf(String)</code>方法，可以返回字符串对应的枚举值。</p>
+<pre><code>System.out.println(Size.valueOf(&quot;SMALL&quot;));</code></pre>
+<p>枚举类型也都有一个静态的<code>values</code>方法，返回一个包括所有枚举类型变量的数组，顺序与声明时的顺序相同。</p>
+<pre><code>for(Size size : Size.values()) &#123;
+    System.out.println(size);
+&#125;</code></pre>
+<p>实际上在类中定义静态整型变量也可以实现枚举的功能，但枚举类型有如下优点。</p>
+<ul>
+<li>  定义枚举的语法更为简洁。</li>
+<li>  枚举类型更为安全。一个枚举类型的变量，它们的值要么为null，要么为枚举值之一，不可能为其他值。如果使用整型变量，它的值就没有办法被限制。</li>
+<li>  枚举类型有许多易于使用的自带方法。</li>
+</ul>
+<p>枚举类型实际上会被Java编译器编译成一个对应的<code>final</code>类，这个类继承了Java API中的java.lang.Enum类。</p>
+<p>一般枚举类型变量会被转换成对应的类变量，在switch语句中，枚举值会被转换成其对应的ordinal值。枚举类型实际上也是类，但由于编译器自动做了许多工作，使得枚举类型的使用更为简洁、安全和方便。</p>
+<p>枚举类型也可以有实例变量和方法。枚举值的定义需要放在类的定义的内部的开头处，以<code>;</code>结尾。</p>
+<pre><code>public enum Size &#123;
+    SMALL(&quot;S&quot;, &quot;小号&quot;), 
+    MEDIUM(&quot;M&quot;,&quot;中号&quot;), 
+    LARGE(&quot;L&quot;,&quot;大号&quot;);
+
+    private String attribute;
+    private String title;
+
+    private Size(String attribute, String title) &#123;
+        this.attribute = attribute;
+        this.title = title;
+    &#125;
+
+    public String getAttribute() &#123;
+        return this.attribute;
+    &#125;
+
+    public String getTitle() &#123;
+        return this.title;
+    &#125;
+&#125;</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>欢迎大家来到我的博客</title>
+    <url>/2021/01/06/%E6%AC%A2%E8%BF%8E%E5%A4%A7%E5%AE%B6%E6%9D%A5%E5%88%B0%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>centOS</tag>
+        <tag>tomcat</tag>
+      </tags>
+  </entry>
 </search>

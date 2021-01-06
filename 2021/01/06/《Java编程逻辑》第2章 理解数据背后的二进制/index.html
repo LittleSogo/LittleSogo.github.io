@@ -79,11 +79,15 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="第2章 理解数据背后的二进制2.1 二进制整数的表示与位运算2.2 小数的二进制表示2.3 字符编码与乱码字符的编码方式有两种，Unicode编码和非Unicode编码。 非Unicode编码非Unicode编码按时间先后顺序如下。 ASCII码是基础，使用一个字节表示，最高位设为0，其他7为表示128个字符，被其他编码兼容。 西欧主要使用Windows-1252，使用一个字节，增加了额外128个">
+<meta property="og:type" content="article">
 <meta property="og:title" content="见渊の博客">
-<meta property="og:url" content="https://littlesogo.github.io/archives/index.html">
+<meta property="og:url" content="https://littlesogo.github.io/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC2%E7%AB%A0%20%E7%90%86%E8%A7%A3%E6%95%B0%E6%8D%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/index.html">
 <meta property="og:site_name" content="见渊の博客">
+<meta property="og:description" content="第2章 理解数据背后的二进制2.1 二进制整数的表示与位运算2.2 小数的二进制表示2.3 字符编码与乱码字符的编码方式有两种，Unicode编码和非Unicode编码。 非Unicode编码非Unicode编码按时间先后顺序如下。 ASCII码是基础，使用一个字节表示，最高位设为0，其他7为表示128个字符，被其他编码兼容。 西欧主要使用Windows-1252，使用一个字节，增加了额外128个">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-01-06T04:43:15.403Z">
+<meta property="article:modified_time" content="2021-01-06T01:42:26.209Z">
 <meta property="article:author" content="LittleSogo">
 <meta name="twitter:card" content="summary">
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://littlesogo.github.io/archives/"/>
+  <link rel="canonical" href="https://littlesogo.github.io/2021/01/06/《Java编程逻辑》第2章 理解数据背后的二进制/"/>
 
 
 
 
 
-  <title>归档 | 见渊の博客</title>
+  <title> | 见渊の博客</title>
   
 
 
@@ -150,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,296 +292,237 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://littlesogo.github.io/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC2%E7%AB%A0%20%E7%90%86%E8%A7%A3%E6%95%B0%E6%8D%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/%5Bobject%20Object%5D">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="见渊の博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline"></h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-06T12:43:15+08:00">
+                2021-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 7 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2021">2021</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC3%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E5%9F%BA%E7%A1%80/" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">未命名</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  707
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-01-06T12:43:15+08:00"
-              content="2021-01-06" >
-          01-06
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC2%E7%AB%A0%20%E7%90%86%E8%A7%A3%E6%95%B0%E6%8D%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-01-06T12:43:15+08:00"
-              content="2021-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%20%E7%AC%AC4%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-01-06T12:43:15+08:00"
-              content="2021-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="第2章-理解数据背后的二进制"><a href="#第2章-理解数据背后的二进制" class="headerlink" title="第2章 理解数据背后的二进制"></a>第2章 理解数据背后的二进制</h1><h1 id="2-1-二进制整数的表示与位运算"><a href="#2-1-二进制整数的表示与位运算" class="headerlink" title="2.1 二进制整数的表示与位运算"></a>2.1 二进制整数的表示与位运算</h1><h1 id="2-2-小数的二进制表示"><a href="#2-2-小数的二进制表示" class="headerlink" title="2.2 小数的二进制表示"></a>2.2 小数的二进制表示</h1><h1 id="2-3-字符编码与乱码"><a href="#2-3-字符编码与乱码" class="headerlink" title="2.3 字符编码与乱码"></a>2.3 字符编码与乱码</h1><p>字符的编码方式有两种，Unicode编码和非Unicode编码。</p>
+<h2 id="非Unicode编码"><a href="#非Unicode编码" class="headerlink" title="非Unicode编码"></a>非Unicode编码</h2><p>非Unicode编码按时间先后顺序如下。</p>
+<p>ASCII码是基础，使用一个字节表示，最高位设为0，其他7为表示128个字符，被其他编码兼容。</p>
+<p>西欧主要使用Windows-1252，使用一个字节，增加了额外128个字符。</p>
+<p>中国大陆的三个主要编码数GB2312，GBK，GB18030。三个编码有时间先后关系，表示的字符数递增，后面的编码兼容前面的编码。GB2312和GBK使用两个字节表示，GB180303使用2个或4个字节表示。</p>
+<p>港澳台主要使用Big5。</p>
+<p>除了ASCII码和中国大陆的三个编码之外，编码与编码之间不兼容，强行解析则会出现乱码的问题。</p>
+<h2 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h2><p>Unicode编码是为了将世界上所有的字符统一编码，以解决由于编码导致乱码的问题。Unicdoe为世界上所有的字符都分配了一个唯一的数字编号，这个编号的范围从0x000000<del>0x10FFFF，常用字符在0x0000</del>0xFFFF之间。每个字符都有一个Unicode编号，这个编号一般写成16进制，前面加上U+。大部分中文的编号范围是U+4E00~U+9FFFF。</p>
+<p>Unicode的编码方案主要有三种，UTF-32，UTF-16和UTF-8。编码存在字节序的问题，大端方式使用BE表示，小端方式使用LE表示。</p>
+<p>UTF-32使用4个字节来表示一个字符。</p>
+<p>UTF-16和UTF-8使用变长字节来表示字符。</p>
+<h2 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h2><p>乱码的主要有两种。</p>
+<ul>
+<li>  解析错误。如Windows-1252编码的文件使用了GB18030来解析。这种方式并没有改变数据的二进制形式，而是改变了解析数据的方式，换回正确的编码即可正常解析。</li>
+<li>  在错误解析的基础上进行了编码转换。这种方式由于进行了编码转换而改变了数据的二进制形式，而最终会出现无论怎么切换编码方式都无法正常解析。</li>
+</ul>
+<h1 id="2-4-char的真正含义"><a href="#2-4-char的真正含义" class="headerlink" title="2.4 char的真正含义"></a>2.4 char的真正含义</h1><p>在Java内部进行字符处理时，采用的都是Unicode，具体编码格式是UTF-16BE。</p>
+<p>char本是上使用一个固定占用两个字节的无符号正整数，这个正整数对应于Unicode编码，用于表示那个Unicode编号对应的字符。由于固定占用两个字节，char只能表示Unicode编号在65536范围内的字符，而不能表示超出范围的字符，超出范围的字符使用两个char来表示。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC5%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E6%89%A9%E5%B1%95/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-01-06T12:43:15+08:00"
-              content="2021-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC1%E7%AB%A0%20%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" itemprop="url">
-              
-                <span itemprop="name">基本数据类型与变量</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-01-06T12:39:39+08:00"
-              content="2021-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/01/06/%E6%AC%A2%E8%BF%8E%E5%A4%A7%E5%AE%B6%E6%9D%A5%E5%88%B0%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/" itemprop="url">
-              
-                <span itemprop="name">欢迎大家来到我的博客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-01-06T12:39:39+08:00"
-              content="2021-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/01/05/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-01-05T17:19:02+08:00"
-              content="2021-01-05" >
-          01-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+	<div>
+      
+        
+      
+	</div>
+	
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%20%E7%AC%AC4%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC3%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E5%9F%BA%E7%A1%80/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -585,6 +530,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -605,8 +554,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -677,6 +635,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E7%90%86%E8%A7%A3%E6%95%B0%E6%8D%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">第2章 理解数据背后的二进制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-1-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B4%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA%E4%B8%8E%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">2.</span> <span class="nav-text">2.1 二进制整数的表示与位运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-2-%E5%B0%8F%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA"><span class="nav-number">3.</span> <span class="nav-text">2.2 小数的二进制表示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-3-%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E4%B8%8E%E4%B9%B1%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">2.3 字符编码与乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9EUnicode%E7%BC%96%E7%A0%81"><span class="nav-number">4.1.</span> <span class="nav-text">非Unicode编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode%E7%BC%96%E7%A0%81"><span class="nav-number">4.2.</span> <span class="nav-text">Unicode编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%B1%E7%A0%81"><span class="nav-number">4.3.</span> <span class="nav-text">乱码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-4-char%E7%9A%84%E7%9C%9F%E6%AD%A3%E5%90%AB%E4%B9%89"><span class="nav-number">5.</span> <span class="nav-text">2.4 char的真正含义</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -837,6 +811,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
