@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/01/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
+    <title>第4章 类的继承</title>
     <url>/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%20%E7%AC%AC4%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/</url>
-    <content><![CDATA[<h1 id="第4章-类的继承"><a href="#第4章-类的继承" class="headerlink" title="第4章 类的继承"></a>第4章 类的继承</h1><p>计算机程序经常使用类之间的<strong>继承关系</strong>来表示对象时间的分类关系。在继承关系中，有<strong>父类</strong>和<strong>子类</strong>，<strong>父类</strong>也叫基类，<strong>子类</strong>也叫派生类。子类继承了父类的属性和行为，而子类也可以增加子类特有的属性和行为。对于某些父类有的行为，子类的实现方式可能和父类也不完全一样。</p>
+    <content><![CDATA[<p>计算机程序经常使用类之间的<strong>继承关系</strong>来表示对象时间的分类关系。在继承关系中，有<strong>父类</strong>和<strong>子类</strong>，<strong>父类</strong>也叫基类，<strong>子类</strong>也叫派生类。子类继承了父类的属性和行为，而子类也可以增加子类特有的属性和行为。对于某些父类有的行为，子类的实现方式可能和父类也不完全一样。</p>
 <p>使用继承一方面可以复用代码，公共的属性和行为可以放到父类中，而子类只需关注子类特有的部分就可以了。另一方面，不同子类的对象可以更为方便地被统一处理。</p>
 <h1 id="4-1-基本概念"><a href="#4-1-基本概念" class="headerlink" title="4.1 基本概念"></a>4.1 基本概念</h1><p><strong>在Java中，所有类默认都有一个父类，Object。</strong></p>
 <p>Object没有定义属性，但定义了一些方法，如<code>toString()</code>，<code>getClass</code>，<code>hashCode()</code>等。</p>
@@ -62,11 +48,14 @@
 <li>  继承并没有反映<code>is-a</code>关系。</li>
 </ul>
 ]]></content>
+      <tags>
+        <tag>centOS</tag>
+      </tags>
   </entry>
   <entry>
     <title>基本数据类型与变量</title>
     <url>/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC1%E7%AB%A0%20%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h1 id="基本数据类型与变量"><a href="#基本数据类型与变量" class="headerlink" title="基本数据类型与变量"></a>基本数据类型与变量</h1><p>数据类型是用来声明变量的。变量实际上是一个标识符，其指向了内存中的一块区域。声明变量就相当于在内存中分配了一块区域，对变量赋值就相当于给这个变量区域放入相应的值。</p>
+    <content><![CDATA[<p>数据类型是用来声明变量的。变量实际上是一个标识符，其指向了内存中的一块区域。声明变量就相当于在内存中分配了一块区域，对变量赋值就相当于给这个变量区域放入相应的值。</p>
 <p>Java的基本数据类型如下。</p>
 <p>数据类型</p>
 <p>大小(字节数)</p>
@@ -134,7 +123,7 @@ A = B; // 在Java中被允许</code></pre>
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>理解数据背后的二进制</title>
     <url>/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC2%E7%AB%A0%20%E7%90%86%E8%A7%A3%E6%95%B0%E6%8D%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</url>
     <content><![CDATA[<h1 id="第2章-理解数据背后的二进制"><a href="#第2章-理解数据背后的二进制" class="headerlink" title="第2章 理解数据背后的二进制"></a>第2章 理解数据背后的二进制</h1><h1 id="2-1-二进制整数的表示与位运算"><a href="#2-1-二进制整数的表示与位运算" class="headerlink" title="2.1 二进制整数的表示与位运算"></a>2.1 二进制整数的表示与位运算</h1><h1 id="2-2-小数的二进制表示"><a href="#2-2-小数的二进制表示" class="headerlink" title="2.2 小数的二进制表示"></a>2.2 小数的二进制表示</h1><h1 id="2-3-字符编码与乱码"><a href="#2-3-字符编码与乱码" class="headerlink" title="2.3 字符编码与乱码"></a>2.3 字符编码与乱码</h1><p>字符的编码方式有两种，Unicode编码和非Unicode编码。</p>
 <h2 id="非Unicode编码"><a href="#非Unicode编码" class="headerlink" title="非Unicode编码"></a>非Unicode编码</h2><p>非Unicode编码按时间先后顺序如下。</p>
@@ -155,11 +144,14 @@ A = B; // 在Java中被允许</code></pre>
 <h1 id="2-4-char的真正含义"><a href="#2-4-char的真正含义" class="headerlink" title="2.4 char的真正含义"></a>2.4 char的真正含义</h1><p>在Java内部进行字符处理时，采用的都是Unicode，具体编码格式是UTF-16BE。</p>
 <p>char本是上使用一个固定占用两个字节的无符号正整数，这个正整数对应于Unicode编码，用于表示那个Unicode编号对应的字符。由于固定占用两个字节，char只能表示Unicode编号在65536范围内的字符，而不能表示超出范围的字符，超出范围的字符使用两个char来表示。</p>
 ]]></content>
+      <tags>
+        <tag>centOS</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>第3章 类的基础</title>
     <url>/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC3%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h1 id="第3章-类的基础"><a href="#第3章-类的基础" class="headerlink" title="第3章 类的基础"></a>第3章 类的基础</h1><h1 id="3-1-类的基本概念"><a href="#3-1-类的基本概念" class="headerlink" title="3.1 类的基本概念"></a>3.1 类的基本概念</h1><p>一种类的理解方式是函数的容器。例如在Java API的类Math，在类Math中，我们可以引用的方法是以<code>public static</code>修饰的。</p>
+    <content><![CDATA[<h1 id="3-1-类的基本概念"><a href="#3-1-类的基本概念" class="headerlink" title="3.1 类的基本概念"></a>3.1 类的基本概念</h1><p>一种类的理解方式是函数的容器。例如在Java API的类Math，在类Math中，我们可以引用的方法是以<code>public static</code>修饰的。</p>
 <p><code>static</code>表示<strong>类方法</strong>，也叫<strong>静态方法</strong>。与类方法相对的是<strong>实例方法</strong>，实例方法没有<code>static</code>修饰，必须通过实例或对象调用，而类方法可以直接通过类名进行调用，不需要创建实例。</p>
 <p><code>public</code>表示方法是公开的，可以在任何地方被外部调用。</p>
 <p><code>private</code>表示方法是私有的，这个方法只能在同一个类内被别的函数调用，而不能被外部类调用。</p>
@@ -268,11 +260,14 @@ public class Hello&#123;
 <p>Java编译运行时需要以参数指定一个classpath，<strong>类路径</strong>。类路径可以有多个，对于直接的class文件，路径是class文件的根目录。对于jar包，路径是jar包的完整名称。</p>
 <p>在Java源代码编译时，Java编译器会确定引用的每个类的完全限定名，确定的方式是根据<code>import</code>语句和<code>classpath</code>。Java运行时，会根据编译时确定下来的类的完全限定名寻找并加载类，寻找的方式就是在类路径中寻找。</p>
 ]]></content>
+      <tags>
+        <tag>centOS</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>第5章 类的扩展</title>
     <url>/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC5%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E6%89%A9%E5%B1%95/</url>
-    <content><![CDATA[<h1 id="第5章-类的扩展"><a href="#第5章-类的扩展" class="headerlink" title="第5章 类的扩展"></a>第5章 类的扩展</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>第5章主要介绍接口、抽象类、内部类和枚举。</p>
 </blockquote>
 <h1 id="接口的本质"><a href="#接口的本质" class="headerlink" title="接口的本质"></a>接口的本质</h1><p>很多时候，我们关心的并不是对象的类型，而是对象的能力，我们要求某个对象提供某种能力，而不管其类型。<strong>接口</strong>就是用来描述对象可以提供的能力。</p>
@@ -449,6 +444,9 @@ si.innerMethod();</code></pre>
     &#125;
 &#125;</code></pre>
 ]]></content>
+      <tags>
+        <tag>centOS</tag>
+      </tags>
   </entry>
   <entry>
     <title>欢迎大家来到我的博客</title>
