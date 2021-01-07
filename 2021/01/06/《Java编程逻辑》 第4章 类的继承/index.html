@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="centOS," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,17 +79,16 @@
 
 
 
-<meta name="description" content="计算机程序经常使用类之间的继承关系来表示对象时间的分类关系。在继承关系中，有父类和子类，父类也叫基类，子类也叫派生类。子类继承了父类的属性和行为，而子类也可以增加子类特有的属性和行为。对于某些父类有的行为，子类的实现方式可能和父类也不完全一样。 使用继承一方面可以复用代码，公共的属性和行为可以放到父类中，而子类只需关注子类特有的部分就可以了。另一方面，不同子类的对象可以更为方便地被统一处理。 4.">
+<meta name="description" content="欢迎常来坐坐!">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第4章 类的继承">
+<meta property="og:title" content="欢迎大家来到索哥的博客">
 <meta property="og:url" content="https://littlesogo.github.io/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%20%E7%AC%AC4%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/index.html">
 <meta property="og:site_name" content="索哥の博客">
-<meta property="og:description" content="计算机程序经常使用类之间的继承关系来表示对象时间的分类关系。在继承关系中，有父类和子类，父类也叫基类，子类也叫派生类。子类继承了父类的属性和行为，而子类也可以增加子类特有的属性和行为。对于某些父类有的行为，子类的实现方式可能和父类也不完全一样。 使用继承一方面可以复用代码，公共的属性和行为可以放到父类中，而子类只需关注子类特有的部分就可以了。另一方面，不同子类的对象可以更为方便地被统一处理。 4.">
+<meta property="og:description" content="欢迎常来坐坐!">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-01-06T04:39:39.000Z">
-<meta property="article:modified_time" content="2021-01-06T07:46:43.555Z">
-<meta property="article:author" content="LittleSogo">
-<meta property="article:tag" content="centOS">
+<meta property="article:modified_time" content="2021-01-07T02:22:28.891Z">
+<meta property="article:author" content="索哥">
 <meta name="twitter:card" content="summary">
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>第4章 类的继承 | 索哥の博客</title>
+  <title>欢迎大家来到索哥的博客 | 索哥の博客</title>
   
 
 
@@ -171,7 +170,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">记录生活的点点滴滴</p>
+        <h1 class="site-subtitle" itemprop="description">记录生活的点点滴滴</h1>
       
   </div>
 
@@ -194,7 +193,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -204,19 +203,19 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+        <li class="menu-item menu-item-摄影">
+          <a href="/%E6%91%84%E5%BD%B1" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            摄影
           </a>
         </li>
       
@@ -224,7 +223,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -234,7 +233,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -324,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第4章 类的继承</h1>
+          <h2 class="post-title" itemprop="name headline">欢迎大家来到索哥的博客</h2>
         
 
         <div class="post-meta">
@@ -368,7 +367,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  6
                 </span>
               
 
@@ -384,7 +383,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  1
                 </span>
               
             </div>
@@ -405,50 +404,7 @@
       
 
       
-        <p>计算机程序经常使用类之间的<strong>继承关系</strong>来表示对象时间的分类关系。在继承关系中，有<strong>父类</strong>和<strong>子类</strong>，<strong>父类</strong>也叫基类，<strong>子类</strong>也叫派生类。子类继承了父类的属性和行为，而子类也可以增加子类特有的属性和行为。对于某些父类有的行为，子类的实现方式可能和父类也不完全一样。</p>
-<p>使用继承一方面可以复用代码，公共的属性和行为可以放到父类中，而子类只需关注子类特有的部分就可以了。另一方面，不同子类的对象可以更为方便地被统一处理。</p>
-<h1 id="4-1-基本概念"><a href="#4-1-基本概念" class="headerlink" title="4.1 基本概念"></a>4.1 基本概念</h1><p><strong>在Java中，所有类默认都有一个父类，Object。</strong></p>
-<p>Object没有定义属性，但定义了一些方法，如<code>toString()</code>，<code>getClass</code>，<code>hashCode()</code>等。</p>
-<p>Java的继承有以下要求。</p>
-<ul>
-<li>  Java使用<code>extends</code>关键字来表示继承关系，一个类最多只能由一个父类。</li>
-<li>  子类不能访问父类的<code>private</code>属性和方法。</li>
-<li>  子类继承了除<code>private</code>外的父类的所有属性和方法。</li>
-</ul>
-<p>子类可以<strong>重写</strong>父类的方法，以反映自己不同的实现。重写实际上是在子类中定义和父类一样的方法，然后重新实现。而重写方法时，需要在重写的方法前加上<code>@Override</code>，以表示子类的这个方法是重写的父类的方法。</p>
-<p>在使用<code>new</code>创建对象的过程中，父类的构造方法也会执行，且优先于子类的构造方法调用。如果需要显式地调用父类的构造方法，则需要使用<code>super</code>关键字。<code>super</code>的使用方法和<code>this</code>相同，只不过<code>super</code>代表的是父类。但是，<code>this</code>引用一个对象，是实实在在存在的，可以作为函数参数，可以作为返回值。但<code>super</code>只是一个关键字，不能作为参数和返回值，其作用只是告诉编译器访问父类的相关变量和方法。</p>
-<p>使用继承的一个好处是通过一个父类变量来统一处理不同子类型的对象。这被称为<strong>多态</strong>，我们可以将一个子类变量给一个父类变量，如果父类具有多个子类。此时，通过父类来调用父类和子类同名的方式时，调用的究竟是哪个子类或父类的方法，由运行时确定，这被称为动态绑定。</p>
-<blockquote>
-<p>多态和动态绑定是计算机程序的一种重要的思维方式，使得操作对象的程序不需要关注对象的实际类型，从而<strong>可以统一处理不同的对象</strong>，但又能<strong>实现每个对象的特有行为</strong>。</p>
-</blockquote>
-<h1 id="4-2-继承的细节"><a href="#4-2-继承的细节" class="headerlink" title="4.2 继承的细节"></a>4.2 继承的细节</h1><p>在子类创建的过程中，父类的构造方法必须被调用。此时，子类可以通过<code>super</code>调用父类的构造方法，如果子类没有通过<code>super</code>调用，则编译器会自动调用父类的<strong>默认构造方法</strong>，如果父类没有默认构造方法，则会出现编译错误。</p>
-<p>如果在父类的方法中调用了可以被子类重写的方法，那么可能会出现意想不到的结果。因为子类如果调用了父类的某个方法A，并且A会调用已经被子类重写的方法B。即使A是父类的方法，但A调用的B不再是父类的方法，而是被重写的方法。而在构造方法中出现这种情况是一种不好的实践，容易引起混淆，因此构造方法应该只调用<code>private</code>方法。</p>
-<p>子类可以重写父类的非<code>private</code>的方法，当调用时会动态绑定，但对于实例变量、静态方法、静态变量和private方法，如果子类和父类的变量和方法重名了，那么在调用时执行的是静态绑定。也就是说，如果通过父类变量来调用，则调用父类的方法和属性，如果通过子类变量来调用，则调用子类的方法和属性。而对于实例方法的动态绑定，我们可以通过一个父类变量来调用子类的实例方法，至于是哪个方法，则可以在运行时动态确定。</p>
-<p>和重写相似的是<strong>重载</strong>。重载只是方法名称相同而函数签名(参数个数、类型或顺序)不同，而重写要求除方法定义外的一切完全相同。当有多个重载函数时，会根据调用时的参数在所有的重载版本中选择出一个最匹配的版本来调用。然后再查看变量的动态类型，进行动态绑定。</p>
-<p>我们可以将一个子类变量赋值给一个父类变量，但父类变量是否能赋值给一个子类变量取决于父类变量的动态类型。也就是说，只有当这个父类变量引用的变量类型确实是将要赋值的子类变量时才会成功，否则会发生编译错误。可以通过<code>instanceof</code>关键字来检查一个父类变量是否引用的是一个子类对象。</p>
-<pre><code>public boolean canCast(Base b) &#123;
-    // child是子类
-    return b instanceof Child;
-&#125;</code></pre>
-<p><code>protected</code>关键字表示属性或方法虽然不能被外部访问，但可以被子类访问或者是被同一个包内的其他类访问，不管其他类是否是该类的子类。<code>proteced</code>的一种常见的应用场景是模板方法。</p>
-<p>重写方法时，子类方法可以提高但不能降低父类方法的可见性。如果父类方法是<code>public</code>，那么子类方法也需要是<code>public</code>；如果父类方法是<code>protected</code>，那么子类方法可以是<code>protected</code>，也可以是<code>public</code>。</p>
-<p>可以使用修饰符<code>final</code>来防止继承。如果<code>final</code>修饰的是一个类，那么这个类不可以被继承。如果<code>final</code>修饰的是类的方法，那么这个方法在不可以被子类重写。</p>
-<h1 id="4-3-继承的基本原理"><a href="#4-3-继承的基本原理" class="headerlink" title="4.3 继承的基本原理"></a>4.3 继承的基本原理</h1><p>在Java中，所谓类的加载是将类的相关信息加载到内存。在Java中，类是动态加载的，当第一次使用这个类的时候才会加载，加载一个类时，会查看其父类是否已加载，如果没有，则会加载其父类。</p>
-<p>在创建对象时，其过程如下</p>
-<ul>
-<li>  分配内存。</li>
-<li>  执行静态变量和静态初始化代码。</li>
-<li>  对所有实例变量赋默认值。</li>
-<li>  执行实例初始化代码。</li>
-</ul>
-<p>分配的内存包括本类和所有父类的实例变量，但不包括任何静态变量。实例初始化代码的执行先从父类开始，然后再执行子类的初始化代码。再执行任何初始化代码前，所有的实例变量已经设置完默认值。</p>
-<p>寻找要执行的实例方法时先从对象的实际类型信息开始查找，找不到时再查找父类的类型信息。如果继承的层次比较深，要调用的方法位于比较上层的父类，则需要经过多次查找，大多数系统则使用一种称为<strong>虚方法表</strong>的方法来优化调用的效率。所谓虚方法表就是在类加载的时候为每个类创建一个表，记录该类的对象所有动态绑定的方法及其地址，但一个方法只有一条记录。子类重写了父类方法后只会保留子类的。</p>
-<p>对变量的访问是静态绑定的。</p>
-<h1 id="4-4-继承是把双刃剑"><a href="#4-4-继承是把双刃剑" class="headerlink" title="4.4 继承是把双刃剑"></a>4.4 继承是把双刃剑</h1><p>继承是具有破坏力的，主要存在以下问题。</p>
-<ul>
-<li>  继承破坏封装，因为子类和父类之间可能存在细节的依赖。</li>
-<li>  继承并没有反映<code>is-a</code>关系。</li>
-</ul>
+        <p>欢迎常来坐坐!</p>
 
       
     </div>
@@ -505,36 +461,47 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    索哥
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://littlesogo.github.io/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%20%E7%AC%AC4%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/" title="欢迎大家来到索哥的博客">https://littlesogo.github.io/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%20%E7%AC%AC4%E7%AB%A0%20%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
-        <div class="post-tags">
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
           
-            <a href="/tags/centOS/" rel="tag"># centOS</a>
-          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
         </div>
       
-
-      
-      
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2021/01/06/%E3%80%8AJava%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E3%80%8B%E7%AC%AC1%E7%AB%A0%20%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="next" title="基本数据类型与变量">
-                <i class="fa fa-chevron-left"></i> 基本数据类型与变量
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -583,17 +550,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -610,9 +568,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -620,15 +578,6 @@
 
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
@@ -639,9 +588,27 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
+                    <a href="https://github.com/yourgithub" target="_blank" title="Github">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
                     <a href="mailto:847034331@gmail.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
                   </span>
                 
             </div>
@@ -659,22 +626,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#4-1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">4.1 基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-2-%E7%BB%A7%E6%89%BF%E7%9A%84%E7%BB%86%E8%8A%82"><span class="nav-number">2.</span> <span class="nav-text">4.2 继承的细节</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-3-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">4.3 继承的基本原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-4-%E7%BB%A7%E6%89%BF%E6%98%AF%E6%8A%8A%E5%8F%8C%E5%88%83%E5%89%91"><span class="nav-number">4.</span> <span class="nav-text">4.4 继承是把双刃剑</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -688,7 +639,8 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-[object Object]"></i>
   </span>
@@ -702,20 +654,18 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">8.7k</span>
+    <span title="Site words total count">6</span>
   
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -1222,6 +1172,18 @@
   <script src="/lib/needsharebutton/needsharebutton.js"></script>
 
   <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
     
     
       flOptions = {};
