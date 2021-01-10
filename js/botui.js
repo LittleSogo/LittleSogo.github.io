@@ -30,7 +30,7 @@ function bot_ui_ini() {
         }).then(function () {
             botui.message.add({
                 delay: 1100,
-                content: "一个帅气的男孩子~"
+                content: "一个帅气的蓝孩子~"
             }).then(function () {
                 botui.action.button({
                     delay: 1600,
@@ -65,11 +65,11 @@ function bot_ui_ini() {
         secondpart = function () {
             botui.message.add({
                 delay: 1500,
-                content: "就读于郑州大学"
+                content: "就读于平顶山工业职业技术学院"
             }).then(function () {
                 botui.message.add({
                     delay: 1500,
-                    content: "是在计算机专业学物联网工程的程序猿"
+                    content: "是在电气自动化专业学java的程序猿"
                 }).then(function () {
                     botui.message.add({
                         delay: 1200,
@@ -81,11 +81,11 @@ function bot_ui_ini() {
                         }).then(function () {
                             botui.message.add({
                                 delay: 1500,
-                                content: "专业方向，自动化控制(Internet of things)"
+                                content: "专业方向，自动化控制(Automation and control systems)"
                             }).then(function () {
                                 botui.message.add({
                                     delay: 1800,
-                                    content: "喜欢看电影和玩手游"
+                                    content: "喜欢看电影和旅游"
                                 }).then(function () {
                                     botui.action.button({
                                         delay: 1100,
