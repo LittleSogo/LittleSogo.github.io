@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>索哥の博客</title>
+  <title>七月の博客</title>
   
   <subtitle>记录生活的点点滴滴</subtitle>
   <link href="https://littlesogo.github.io/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://littlesogo.github.io/</id>
   
   <author>
-    <name>索哥</name>
+    <name>七月</name>
     
   </author>
   
